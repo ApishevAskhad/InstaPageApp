@@ -2,6 +2,7 @@ package ru.apishev.askhad.instapageapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.ac_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -9,6 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ac_main)
 
-        titleTextView.text = "hellow"
+        val items = listOf(Model("Alex"), Model("John"))
+
+        with(mainRecyclerView) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = CustomAdapter(items)
+        }
     }
 }
